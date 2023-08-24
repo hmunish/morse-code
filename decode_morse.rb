@@ -1,4 +1,4 @@
-def decode_word(word)
+def decode_char(charac)
   codes = {
     '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D',
     '.' => 'E', '..-.' => 'F', '--.' => 'G', '....' => 'H',
@@ -10,15 +10,19 @@ def decode_word(word)
     '--...' => '7', '---..' => '8',
     '----.' => '9', '-----' => '0'
   }
+  codes[charac]
+end
+
+def decode_word(word)
   result = ''
   character = word.split
   character.each do |c|
-    result += codes[c]
+    result += decode_char(c)
   end
   result
 end
 
-def decode_message(message)
+def decode(message)
   result = ''
   words = message.split('   ')
   words.each do |w|
@@ -26,4 +30,4 @@ def decode_message(message)
   end
   result
 end
-print decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+print decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
