@@ -23,9 +23,9 @@ def decode_word(word)
 end
 
 def decode(message)
-  result = ''
   words = message.split('   ')
   words.each do |w|
+    result = ''
     result += "#{decode_word(w)} "
   end
   result
