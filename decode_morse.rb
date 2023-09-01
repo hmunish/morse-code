@@ -1,3 +1,4 @@
+require 'pry'
 def decode_char(charac)
   codes = {
     '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D',
@@ -12,10 +13,9 @@ def decode_char(charac)
   }
   codes[charac]
 end
-
 def decode_word(word)
-  result = ''
   character = word.split
+  result = ''
   character.each do |c|
     result += decode_char(c)
   end
